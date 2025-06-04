@@ -7,8 +7,6 @@
 </head>
 <body>
     <script>
-
-         const computer = getcomputerchoice().toUpperCase();
          let humanScore=0;
          let computerScore=0;
          
@@ -52,6 +50,7 @@
          
          for(let i=1;i<=5;i++){
             console.log("Round = "+i);
+            let computer = getcomputerchoice().toUpperCase();
             let human=gethumanchoice().toUpperCase();
             playround(human,computer);
          }
