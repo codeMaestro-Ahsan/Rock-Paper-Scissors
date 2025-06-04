@@ -32,18 +32,20 @@
        
        
         function playgame(){
-            function playround(human,computer){
+            function playround(human,computer,round){
             if (human===computer){
-                console.log("Draw");
+                console.log(`Game-Round:${round} , Draw!` );
             }else if((computer === "SCISSORS" && human === "PAPER") || (computer === "ROCK" && human === "SCISSORS") || (computer === "PAPER" && human === "ROCK")
 ) {
                 ++computerScore;
-                console.log(`You Loose!!! ${computer} beats ${human}.
-                Your Score is ${humanScore} `);
+                console.log(`Game-Round: ${round}
+You Loose!!! ${computer} beats ${human}.
+Your Score is ${humanScore} `);
             }else{
                 ++humanScore;
-                console.log(`You Win!!! ${human} beats ${computer}.
-                Your Score is ${humanScore}`);
+                console.log(`Game-Round: ${round}
+You Win!!! ${human} beats ${computer}.
+Your Score is ${humanScore}`);
             }
 
         }
@@ -52,22 +54,24 @@
             console.log("Round = "+i);
             let computer = getcomputerchoice().toUpperCase();
             let human=gethumanchoice().toUpperCase();
-            playround(human,computer);
+            console.log(`Your Choice: ${human}
+Computer Choice: ${computer}`);
+            playround(human,computer,i);
          }
          if (humanScore==computerScore){
             console.log(`Overall Game Results:
-            Draw!!!
-            Your Score: ${humanScore} = Computer Score:${computerScore}`);
+Draw!!!
+Your Score: ${humanScore} = Computer Score = ${computerScore}`);
          }
          else if(humanScore>computerScore){
             console.log(`Overall Game Results:
-            You Win!!!
-            Your Score=${humanScore} is greater than Computer Score:${computerScore}`)
+You Win!!!
+Your Score = ${humanScore} is greater than Computer Score = ${computerScore}`)
          }
          else{
             console.log(`Overall Game Results:
-            You Loose!!!
-            Your Score=${humanScore} is less than Computer Score:${computerScore}`)
+You Loose!!!
+Your Score = ${humanScore} is less than Computer Score = ${computerScore}`)
          }
     }
     playgame();
