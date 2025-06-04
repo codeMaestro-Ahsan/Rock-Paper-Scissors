@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
 
+         const computer = getcomputerchoice().toUpperCase();
+         let humanScore=0;
+         let computerScore=0;
+         
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+        }
+        function getcomputerchoice(){
+            let number= getRandomInt(3);
+            if(number==0){
+                return "Rock";
+            }         
+             else if (number==1){
+                return "Paper";
+            }
+            else{
+                return "Scissors";
+            }
+        }
+        function gethumanchoice(){
+            let humanChoice=prompt("Enter your Choice, that must be one of these: Rock , Paper or Scissors");
+            return humanChoice;
+        }
+       
+       
+        function playgame(){
+            function playround(human,computer){
+            if (human===computer){
+                console.log("Draw");
+            }else if((computer === "SCISSORS" && human === "PAPER") || (computer === "ROCK" && human === "SCISSORS") || (computer === "PAPER" && human === "ROCK")
+) {
+                ++computerScore;
+                console.log(`You Loose!!! ${computer} beats ${human}.
+                Your Score is ${humanScore} `);
+            }else{
+                ++humanScore;
+                console.log(`You Win!!! ${human} beats ${computer}.
+                Your Score is ${humanScore}`);
+            }
+
+        }
+         
+         for(let i=1;i<=5;i++){
+            console.log("Round = "+i);
+            let human=gethumanchoice().toUpperCase();
+            playround(human,computer);
+         }
+         if (humanScore==computerScore){
+            console.log(`Overall Game Results:
+            Draw!!!
+            Your Score: ${humanScore} = Computer Score:${computerScore}`);
+         }
+         else if(humanScore>computerScore){
+            console.log(`Overall Game Results:
+            You Win!!!
+            Your Score=${humanScore} is greater than Computer Score:${computerScore}`)
+         }
+         else{
+            console.log(`Overall Game Results:
+            You Loose!!!
+            Your Score=${humanScore} is less than Computer Score:${computerScore}`)
+         }
+    }
+    playgame();
+
+        
+
+    </script>
+    
+</body>
+</html>
